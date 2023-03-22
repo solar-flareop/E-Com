@@ -21,7 +21,7 @@ export const createProductController = async (req, res) => {
         return res.status(500).json({ message: "description is required" });
       case !category:
         return res.status(500).json({ message: "category is required" });
-      case !photo || photo.size > 1000000:
+      case photo && photo.size > 1000000:
         return res.status(500).json({
           message: "photo is required & size should be less than 1MB",
         });
@@ -152,7 +152,7 @@ export const updateProductController = async (req, res) => {
         return res.status(500).json({ message: "description is required" });
       case !category:
         return res.status(500).json({ message: "category is required" });
-      case !photo || photo.size > 1000000:
+      case photo && photo.size > 1000000:
         return res.status(500).json({
           message: "photo is required & size should be less than 1MB",
         });
